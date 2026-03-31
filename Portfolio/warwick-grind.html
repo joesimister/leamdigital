@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Warwick Grind — Specialty Coffee & Food</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --espresso:#1A0F08;--roast:#2D1F14;--mocha:#4A3020;
+  --caramel:#C9A065;--cream:#F5E8D0;--milk:#FAF5ED;
+  --text:#1A0F08;--muted:#7A6558;--border:#E8D8C0;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Lato',sans-serif;background:var(--milk);color:var(--text);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,15,8,0.97);backdrop-filter:blur(12px);height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;border-bottom:1px solid rgba(201,160,101,0.2);}
+.logo{font-family:'Playfair Display',serif;font-size:20px;color:white;font-style:italic;}
+.logo em{color:var(--caramel);}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--caramel);}
+.nav-order{background:var(--caramel);color:var(--espresso);padding:9px 22px;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:background 0.2s;}
+.nav-order:hover{background:#DDB878;}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--espresso);display:flex;position:relative;overflow:hidden;}
+.hero-split-left{flex:1;display:flex;flex-direction:column;justify-content:center;padding:100px 5% 80px 5%;position:relative;}
+.hero-split-right{width:45%;background:var(--roast);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+@media(max-width:768px){.hero-split-right{display:none;}.hero-split-left{padding:100px 5% 80px;}}
+.coffee-art{font-size:120px;opacity:0.15;position:absolute;}
+.beans-pattern{position:absolute;inset:0;background-image:radial-gradient(circle 2px at 20% 30%,rgba(201,160,101,0.3) 0%,transparent 100%),radial-gradient(circle 3px at 60% 70%,rgba(201,160,101,0.2) 0%,transparent 100%),radial-gradient(circle 2px at 80% 20%,rgba(201,160,101,0.3) 0%,transparent 100%);}
+.hero-tagline{font-size:11px;font-weight:700;letter-spacing:4px;color:var(--caramel);text-transform:uppercase;margin-bottom:20px;}
+h1{font-family:'Playfair Display',serif;font-size:clamp(42px,5.5vw,72px);color:white;line-height:1.05;margin-bottom:16px;}
+h1 em{color:var(--caramel);display:block;}
+.hero-sub{font-size:17px;color:rgba(245,232,208,0.6);line-height:1.7;max-width:440px;margin-bottom:36px;font-weight:300;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{background:var(--caramel);color:var(--espresso);padding:14px 28px;border-radius:4px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:background 0.2s;}
+.btn-primary:hover{background:#DDB878;}
+.btn-secondary{border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.8);padding:14px 24px;border-radius:4px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all 0.2s;}
+.btn-secondary:hover{border-color:var(--caramel);color:var(--caramel);}
+.open-badge{margin-top:44px;display:inline-flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.5);}
+.open-dot{width:8px;height:8px;background:#4CAF50;border-radius:50%;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.right-content{position:relative;z-index:1;text-align:center;padding:40px;}
+.big-cup{font-size:200px;display:block;line-height:1;opacity:0.6;}
+.right-label{font-family:'Playfair Display',serif;font-style:italic;color:var(--caramel);font-size:18px;margin-top:8px;}
+
+/* ABOUT STRIP */
+.about-strip{background:var(--caramel);padding:28px 5%;display:flex;gap:48px;justify-content:center;flex-wrap:wrap;}
+.strip-item{display:flex;align-items:center;gap:10px;color:var(--espresso);font-size:14px;font-weight:700;letter-spacing:0.5px;}
+
+/* MENU */
+.menu{background:var(--milk);padding:88px 5%;}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--caramel);margin-bottom:12px;}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,48px);line-height:1.1;margin-bottom:14px;}
+.sec-sub{font-size:16px;color:var(--muted);line-height:1.7;max-width:480px;}
+.menu-tabs{display:flex;gap:0;margin:44px 0 0;border-bottom:2px solid var(--border);}
+.menu-tab{padding:12px 24px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;transition:all 0.2s;}
+.menu-tab.active{color:var(--espresso);border-bottom-color:var(--caramel);}
+.menu-panels{margin-top:32px;}
+.menu-panel{display:none;}
+.menu-panel.active{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;}
+.menu-item{background:white;border:1px solid var(--border);border-radius:8px;padding:20px 22px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;}
+.item-info{}
+.item-name{font-family:'Playfair Display',serif;font-size:17px;margin-bottom:4px;}
+.item-desc{font-size:13px;color:var(--muted);line-height:1.5;}
+.item-tags{margin-top:8px;display:flex;gap:6px;}
+.item-tag{font-size:10px;font-weight:700;letter-spacing:0.5px;padding:2px 8px;border-radius:2px;text-transform:uppercase;}
+.tag-vg{background:#E8F5E9;color:#2E7D32;}
+.tag-df{background:#FFF8E1;color:#F57F17;}
+.tag-gf{background:#FCE4EC;color:#C62828;}
+.item-price{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--caramel);white-space:nowrap;}
+
+/* STORY */
+.story{background:var(--roast);padding:88px 5%;}
+.story-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+@media(max-width:768px){.story-inner{grid-template-columns:1fr;gap:40px;}}
+.story-text .sec-title{color:white;}
+.story-text .sec-sub{color:rgba(245,232,208,0.6);margin-bottom:24px;}
+.story-text p{font-size:15px;color:rgba(245,232,208,0.55);line-height:1.8;margin-bottom:16px;}
+.story-visual{background:var(--mocha);border-radius:16px;padding:44px;position:relative;overflow:hidden;}
+.story-visual::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(201,160,101,0.2),transparent 70%);}
+.story-stat{margin-bottom:28px;}
+.story-stat:last-child{margin-bottom:0;}
+.stat-num{font-family:'Playfair Display',serif;font-size:48px;color:var(--caramel);}
+.stat-label{font-size:14px;color:rgba(245,232,208,0.5);margin-top:2px;}
+
+/* EVENTS */
+.events{background:var(--cream);padding:88px 5%;}
+.events-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:48px;}
+.event-card{background:white;border-radius:10px;overflow:hidden;border:1px solid var(--border);}
+.event-date{background:var(--espresso);color:var(--caramel);font-family:'Playfair Display',serif;padding:14px 20px;font-size:15px;}
+.event-body{padding:22px;}
+.event-title{font-family:'Playfair Display',serif;font-size:19px;margin-bottom:8px;}
+.event-desc{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:16px;}
+.event-btn{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--caramel);text-decoration:none;}
+
+/* FOOTER */
+footer{background:var(--espresso);padding:60px 5% 36px;color:rgba(245,232,208,0.6);}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+@media(max-width:700px){.footer-top{grid-template-columns:1fr;gap:32px;}}
+.footer-brand p{font-size:14px;line-height:1.7;margin-top:12px;}
+.footer-col h4{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--caramel);margin-bottom:16px;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:10px;font-size:14px;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-bottom a{color:rgba(255,255,255,0.3);font-size:13px;text-decoration:none;transition:color 0.2s;}
+.footer-bottom a:hover{color:var(--caramel);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><em>The</em> Warwick Grind</div>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+  <a href="#menu" class="nav-order">View Menu</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-split-left">
+    <div class="hero-tagline">Warwick Town Centre · Est. 2019</div>
+    <h1>Specialty coffee,<br><em>honest food.</em></h1>
+    <p class="hero-sub">Locally roasted single-origin beans, homemade food from scratch, and a space that feels genuinely like yours.</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-primary">See Our Menu</a>
+      <a href="#visit" class="btn-secondary">Find Us</a>
+    </div>
+    <div class="open-badge">
+      <span class="open-dot"></span>
+      <span>Open today · Mon–Fri 7:30am–5pm · Sat 8am–4pm</span>
+    </div>
+  </div>
+  <div class="hero-split-right">
+    <div class="beans-pattern"></div>
+    <div class="right-content">
+      <span class="big-cup">☕</span>
+      <div class="right-label">crafted with care</div>
+    </div>
+  </div>
+</section>
+
+<div class="about-strip">
+  <div class="strip-item">☕ Locally roasted beans</div>
+  <div class="strip-item">🌿 Seasonal, homemade food</div>
+  <div class="strip-item">💻 Fast WiFi, great for working</div>
+  <div class="strip-item">🐾 Dog friendly</div>
+  <div class="strip-item">♿ Fully accessible</div>
+</div>
+
+<section class="menu" id="menu">
+  <div class="sec-label">What We Serve</div>
+  <h2 class="sec-title">Our Menu</h2>
+  <p class="sec-sub">Everything made fresh each morning. We cater to dietary requirements — just ask.</p>
+  <div class="menu-tabs">
+    <div class="menu-tab active" onclick="switchTab('coffee')">Coffee</div>
+    <div class="menu-tab" onclick="switchTab('food')">Food</div>
+    <div class="menu-tab" onclick="switchTab('drinks')">Other Drinks</div>
+  </div>
+  <div class="menu-panels">
+    <div class="menu-panel active" id="tab-coffee">
+      <div class="menu-item"><div class="item-info"><div class="item-name">Flat White</div><div class="item-desc">Double ristretto, velvety microfoam. Our bestseller.</div><div class="item-tags"><span class="item-tag tag-vg">VG option</span><span class="item-tag tag-df">DF option</span></div></div><div class="item-price">£3.20</div></div>
+      <div class="menu-item"><div class="item-info"><div class="item-name">Cortado</div><div class="item-desc">Equal parts espresso and warm milk, no frills.</div><div class="item-tags"><span class="item-tag tag-vg">VG option</span></div></div><div class="item-price">£3.00</div></div>
+      <div class="menu-item"><div class="item-info"><div class="item-name">Filter Coffee</div><div class="item-desc">Single-origin drip brew, rotated weekly. Ask about today's origin.</div><div class="item-tags"><span class="item-tag tag-vg">Vegan</span><span class="item-tag tag-gf">GF</span></div></div><div class="item-price">£2.60</div></div>
+      <div class="menu-item"><div class="item-info"><div class="item-name">Oat Latte</div><div class="item-desc">Barista oat milk, silky and slightly sweet.</div><div class="item-tags"><span class="item-tag tag-vg">Vegan</span><span class="item-tag tag-df">Dairy-free</span></div></div><div class="item-price">£3.60</div></div>
+      <div class="menu-item"><div class="item-info"><div class="item-name">Iced Espresso Tonic</div><div class="item-desc">Double shot over ice with Fever-Tree tonic. Surprisingly refreshing.</div><div class="item-tags"><span class="item-tag tag-vg">Vegan</span></div></div><div class="item-price">£3.80</div></div>
+      <div class="menu-item"><div class="item-info"><div class="item-name">Cappuccino</div><div class="item-desc">Classic third-and-third, dusted with cocoa.</div><div class="item-tags"><span class="item-tag tag-vg">VG option</span></div></div><div class="item-price">£3.20</div></div>
+    </div>
+    <div class="menu-panel" id="tab-food">
+      <div class="menu-item"><div class="item-info"><div class="item-name">Avocado Toast</div><div class="item-desc">Sourdough, smashed avo, chilli flakes, poached egg.</div><div class="item-tags"><span class="item-tag tag-vg">VG without egg</span></div></div><div class="item-price">£8.50</div></div>
+      <div class="menu-item"><div class="item-info"><div class="item-name">Bacon Sandwich</div><div class="item-desc">Locally sourced back bacon, thick white bloomer, brown sauce.</div></div><div class="item-price">£6.00</div></div>
+      <div class="menu-item"><div class="item-info"><div class="item-name">Banana Bread</div><div class="item-desc">Baked in-house daily with walnuts and a hint of cinnamon.</div><div class="item-tags"><span class="item-tag tag-vg">Vegan</span></div></div><div class="item-price">£3.50</div></div>
+      <div class="menu-item"><div class="item-info"><div class="item-name">Grind Granola Bowl</div><div class="item-desc">House granola, seasonal fruit, oat milk yoghurt.</div><div class="item-tags"><span class="item-tag tag-vg">Vegan</span><span class="item-tag tag-gf">GF</span></div></div><div class="item-price">£7.00</div></div>
+      <div class="menu-item"><div class="item-info"><div class="item-name">Toasted Cheese & Ham</div><div class="item-desc">Warwickshire cheddar, smoked ham, Dijon, sourdough.</div></div><div class="item-price">£7.50</div></div>
+      <div class="menu-item"><div class="item-info"><div class="item-name">Seasonal Soup</div><div class="item-desc">Ask at the counter. Served with sourdough and butter.</div><div class="item-tags"><span class="item-tag tag-vg">Often vegan</span></div></div><div class="item-price">£6.50</div></div>
+    </div>
+    <div class="menu-panel" id="tab-drinks">
+      <div class="menu-item"><div class="item-info"><div class="item-name">Matcha Latte</div><div class="item-desc">Ceremonial grade matcha, steamed oat milk.</div><div class="item-tags"><span class="item-tag tag-vg">Vegan</span></div></div><div class="item-price">£3.80</div></div>
+      <div class="menu-item"><div class="item-info"><div class="item-name">Loose Leaf Tea</div><div class="item-desc">English Breakfast, Earl Grey, Peppermint, Green, Chamomile.</div><div class="item-tags"><span class="item-tag tag-vg">Vegan</span></div></div><div class="item-price">£2.80</div></div>
+      <div class="menu-item"><div class="item-info"><div class="item-name">Hot Chocolate</div><div class="item-desc">Valrhona chocolate, steamed milk, whipped cream.</div><div class="item-tags"><span class="item-tag tag-vg">VG option</span></div></div><div class="item-price">£3.60</div></div>
+      <div class="menu-item"><div class="item-info"><div class="item-name">Fresh Orange Juice</div><div class="item-desc">Pressed to order.</div><div class="item-tags"><span class="item-tag tag-vg">Vegan</span><span class="item-tag tag-gf">GF</span></div></div><div class="item-price">£3.50</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="story-inner">
+    <div class="story-text">
+      <div class="sec-label" style="color:var(--caramel)">Our Story</div>
+      <h2 class="sec-title" style="color:white;">Started with one bag of beans and a dream.</h2>
+      <p class="sec-sub">We opened The Warwick Grind because Warwick deserved better coffee.</p>
+      <p>Founder Sarah had spent years working in specialty cafés in London and Birmingham before returning home to Warwickshire. She couldn't find a single place locally that took coffee as seriously as she did — so she fixed that.</p>
+      <p>Every coffee is made with beans roasted by our friends at Outpost Roasters in Leamington. Every plate of food starts with local producers and changes with the seasons.</p>
+    </div>
+    <div class="story-visual">
+      <div class="story-stat"><div class="stat-num">2019</div><div class="stat-label">Year we opened</div></div>
+      <div class="story-stat"><div class="stat-num">4+</div><div class="stat-label">Local food suppliers</div></div>
+      <div class="story-stat"><div class="stat-num">850+</div><div class="stat-label">Google reviews, avg 4.9★</div></div>
+      <div class="story-stat"><div class="stat-num">1</div><div class="stat-label">Roaster — always local</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="events" id="events">
+  <div class="sec-label">What's On</div>
+  <h2 class="sec-title">Events & Happenings</h2>
+  <p class="sec-sub">From coffee tastings to live acoustic sessions — something's always happening at the Grind.</p>
+  <div class="events-grid">
+    <div class="event-card">
+      <div class="event-date">Saturday 12 April, 10am–12pm</div>
+      <div class="event-body">
+        <div class="event-title">Beginner's Brew Class</div>
+        <p class="event-desc">Learn how to make café-quality coffee at home. We cover espresso, pour-over and aeropress. Includes a bag of beans to take home. £25/person.</p>
+        <a href="#" class="event-btn">Book a place →</a>
+      </div>
+    </div>
+    <div class="event-card">
+      <div class="event-date">Every Friday, 6pm–8pm</div>
+      <div class="event-body">
+        <div class="event-title">Late Friday Acoustic</div>
+        <p class="event-desc">We stay open late every Friday for live acoustic sets from local musicians. Come for coffee, stay for the music. Free entry.</p>
+        <a href="#" class="event-btn">Find out more →</a>
+      </div>
+    </div>
+    <div class="event-card">
+      <div class="event-date">Sunday 27 April, 2pm–4pm</div>
+      <div class="event-body">
+        <div class="event-title">Origin Tasting: Ethiopia</div>
+        <p class="event-desc">A guided tasting through three naturally processed Ethiopian coffees, hosted with our roaster. Tickets £18, includes a 150g bag.</p>
+        <a href="#" class="event-btn">Book tickets →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit" style="background:var(--milk);padding:88px 5%;">
+  <div class="sec-label">Find Us</div>
+  <h2 class="sec-title">Visit The Grind</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:44px;align-items:start;">
+    <div>
+      <p style="font-size:16px;line-height:1.7;color:var(--muted);margin-bottom:28px;">We're right in the heart of Warwick town centre, a two-minute walk from the castle and very close to all the town centre car parks.</p>
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div style="display:flex;gap:14px;"><span style="font-size:20px;">📍</span><div><strong style="display:block;margin-bottom:2px;">Address</strong><span style="color:var(--muted);font-size:15px;">14 Market Place, Warwick, CV34 4SL</span></div></div>
+        <div style="display:flex;gap:14px;"><span style="font-size:20px;">🕐</span><div><strong style="display:block;margin-bottom:2px;">Hours</strong><span style="color:var(--muted);font-size:15px;">Mon–Fri: 7:30am–5pm<br>Saturday: 8am–4pm<br>Sunday: Closed</span></div></div>
+        <div style="display:flex;gap:14px;"><span style="font-size:20px;">📞</span><div><strong style="display:block;margin-bottom:2px;">Phone</strong><span style="color:var(--muted);font-size:15px;">01926 000 123</span></div></div>
+      </div>
+    </div>
+    <div style="background:var(--roast);border-radius:12px;padding:36px;color:rgba(245,232,208,0.7);">
+      <h3 style="font-family:'Playfair Display',serif;color:white;font-size:22px;margin-bottom:20px;">Good to Know</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;font-size:14px;">
+        <li>☕ Takeaway cups available (10p discount if you bring your own)</li>
+        <li>💻 Fast, free WiFi — great for remote working</li>
+        <li>🐾 We love dogs — water bowl always available</li>
+        <li>♿ Step-free access, accessible toilet</li>
+        <li>🅿️ Market Square car park 2 mins away</li>
+        <li>🚲 Bike rack outside the front door</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div style="font-family:'Playfair Display',serif;font-size:22px;color:white;font-style:italic;">The Warwick Grind</div>
+      <p>Specialty coffee and honest food in the heart of Warwick town centre. Open Monday to Saturday.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#menu" style="color:rgba(245,232,208,0.5);text-decoration:none;">Menu</a></li>
+        <li><a href="#story" style="color:rgba(245,232,208,0.5);text-decoration:none;">Our Story</a></li>
+        <li><a href="#events" style="color:rgba(245,232,208,0.5);text-decoration:none;">Events</a></li>
+        <li><a href="#visit" style="color:rgba(245,232,208,0.5);text-decoration:none;">Find Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>14 Market Place, Warwick</li>
+        <li>CV34 4SL</li>
+        <li style="margin-top:6px;">01926 000 123</li>
+        <li>hello@warwickgrind.co.uk</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 The Warwick Grind</span>
+    <a href="../leamdigital.html">← Website by Leam Digital</a>
+  </div>
+</footer>
+
+<script>
+function switchTab(name){
+  document.querySelectorAll('.menu-tab').forEach((t,i)=>{t.classList.remove('active');if(['coffee','food','drinks'][i]===name)t.classList.add('active');});
+  document.querySelectorAll('.menu-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+}
+</script>
+</body>
+</html>

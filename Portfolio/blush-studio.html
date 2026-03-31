@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blush Hair & Beauty Studio — Kenilworth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --rose-deep:#8B3A5A;--rose:#B56080;--rose-light:#D4A0B5;--rose-pale:#F4E0E8;
+  --blush:#FDF0EC;--cream:#FFF9F7;--warm:#F5EDE8;
+  --text:#2D1020;--muted:#8B7070;--border:#EDD8DC;
+  --gold:#C4A882;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,249,247,0.97);backdrop-filter:blur(12px);height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;border-bottom:1px solid var(--border);}
+.logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:var(--rose-deep);letter-spacing:2px;}
+.logo em{font-style:italic;font-weight:600;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--rose-deep);}
+.book-btn{background:var(--rose-deep);color:white;padding:10px 24px;border-radius:100px;font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:background 0.2s;}
+.book-btn:hover{background:var(--rose);}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,var(--blush) 0%,var(--rose-pale) 50%,#F9E8F2 100%);display:flex;align-items:center;padding:100px 5% 80px;position:relative;overflow:hidden;}
+.hero-circles{position:absolute;inset:0;pointer-events:none;}
+.circle1{position:absolute;width:500px;height:500px;border-radius:50%;border:1px solid rgba(180,96,128,0.1);right:-100px;top:50%;transform:translateY(-50%);}
+.circle2{position:absolute;width:300px;height:300px;border-radius:50%;border:1px solid rgba(180,96,128,0.12);right:60px;top:50%;transform:translateY(-50%);}
+.circle3{position:absolute;width:140px;height:140px;border-radius:50%;background:rgba(180,96,128,0.06);right:160px;top:50%;transform:translateY(-50%);}
+.hero-inner{position:relative;max-width:580px;}
+.hero-tag{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:20px;}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,6vw,80px);font-weight:300;line-height:1.05;letter-spacing:-0.5px;margin-bottom:18px;color:var(--text);}
+h1 em{font-style:italic;color:var(--rose-deep);}
+.hero-sub{font-size:16px;color:var(--muted);line-height:1.75;max-width:440px;margin-bottom:36px;font-weight:300;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-book{background:var(--rose-deep);color:white;padding:15px 34px;border-radius:100px;font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:background 0.2s,transform 0.15s;}
+.btn-book:hover{background:var(--rose);transform:translateY(-1px);}
+.btn-prices{border:1px solid var(--rose-deep);color:var(--rose-deep);padding:15px 28px;border-radius:100px;font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:all 0.2s;}
+.btn-prices:hover{background:var(--rose-pale);}
+.awards-row{margin-top:44px;display:flex;gap:24px;flex-wrap:wrap;padding-top:36px;border-top:1px solid var(--border);}
+.award-item{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px;}
+.award-item::before{content:'✦';color:var(--gold);font-size:10px;}
+
+/* SERVICES */
+.services{background:white;padding:88px 5%;}
+.sec-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:12px;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;line-height:1.1;margin-bottom:14px;}
+.sec-sub{font-size:15px;color:var(--muted);line-height:1.7;max-width:480px;font-weight:300;}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:52px;}
+.service-card{background:var(--cream);border:1px solid var(--border);border-radius:16px;padding:36px;position:relative;overflow:hidden;transition:transform 0.2s;}
+.service-card:hover{transform:translateY(-3px);}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--rose-deep),var(--rose-light));}
+.service-cat{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--rose);margin-bottom:12px;}
+.service-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;margin-bottom:12px;}
+.service-body{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:20px;}
+.service-price-from{font-size:12px;color:var(--muted);}
+.service-price{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--rose-deep);}
+.price-items{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:12px;}
+.price-item{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-bottom:1px solid var(--border);color:var(--text);}
+.price-item span:last-child{color:var(--rose-deep);font-weight:500;}
+
+/* GALLERY */
+.gallery{background:var(--blush);padding:88px 5%;}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px;}
+@media(max-width:700px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+.gallery-cell{border-radius:10px;overflow:hidden;aspect-ratio:3/4;background:var(--warm);display:flex;align-items:center;justify-content:center;position:relative;}
+.gallery-cell .icon{font-size:40px;opacity:0.3;}
+.gallery-overlay{position:absolute;inset:0;background:rgba(139,58,90,0.7);opacity:0;transition:opacity 0.3s;display:flex;align-items:center;justify-content:center;}
+.gallery-cell:hover .gallery-overlay{opacity:1;}
+.gallery-overlay span{color:white;font-size:13px;font-weight:500;letter-spacing:1px;}
+
+/* TEAM */
+.team{background:white;padding:88px 5%;}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:52px;}
+.team-card{text-align:center;}
+.team-avatar{width:120px;height:120px;border-radius:50%;background:var(--rose-pale);display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 16px;border:3px solid var(--border);}
+.team-name{font-family:'Cormorant Garamond',serif;font-size:22px;margin-bottom:4px;}
+.team-role{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--rose);margin-bottom:10px;}
+.team-bio{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;}
+
+/* BOOKING */
+.booking{background:var(--rose-deep);padding:88px 5%;}
+.booking-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+@media(max-width:768px){.booking-inner{grid-template-columns:1fr;gap:40px;}}
+.booking-text .sec-title{color:white;}
+.booking-text p{font-size:15px;color:rgba(255,255,255,0.65);line-height:1.75;margin-top:16px;font-weight:300;}
+.booking-form{background:white;border-radius:20px;padding:40px;}
+.booking-form h3{font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:28px;font-weight:400;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-family:'Jost',sans-serif;font-size:14px;background:var(--cream);transition:border-color 0.2s;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--rose);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.submit-book{width:100%;background:var(--rose-deep);color:white;border:none;padding:15px;border-radius:100px;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background 0.2s;}
+.submit-book:hover{background:var(--rose);}
+
+/* FOOTER */
+footer{background:var(--text);padding:52px 5% 28px;color:rgba(255,255,255,0.5);}
+.footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:40px;}
+.footer-brand .logo{color:white;font-size:20px;}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,0.4);margin-top:10px;max-width:260px;line-height:1.7;}
+.footer-links h4{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:14px;}
+.footer-links ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.footer-links a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:13px;transition:color 0.2s;}
+.footer-links a:hover{color:var(--rose-light);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;}
+.footer-bottom a{color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.2s;}
+.footer-bottom a:hover{color:var(--rose-light);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><em>Blush</em> Hair & Beauty</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#booking">Book</a></li>
+  </ul>
+  <a href="#booking" class="book-btn">Book Now</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-circles"><div class="circle1"></div><div class="circle2"></div><div class="circle3"></div></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Hair & Beauty · Kenilworth</div>
+    <h1>Where confidence<br><em>begins.</em></h1>
+    <p class="hero-sub">Award-winning stylists, luxury treatments, and a space designed entirely around you. We listen, we create, we deliver.</p>
+    <div class="hero-actions">
+      <a href="#booking" class="btn-book">Book an Appointment</a>
+      <a href="#services" class="btn-prices">View Prices</a>
+    </div>
+    <div class="awards-row">
+      <span class="award-item">Best Salon, Warwickshire 2024</span>
+      <span class="award-item">4.9★ on Google (340+ reviews)</span>
+      <span class="award-item">Fully qualified, insured stylists</span>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="sec-label">What We Offer</div>
+  <h2 class="sec-title">Our Services</h2>
+  <p class="sec-sub">From a quick trim to a full transformation — every service is tailored to you.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-cat">Hair</div>
+      <div class="service-title">Cuts & Styling</div>
+      <p class="service-body">Precision cuts, blow-dries, and styling for every hair type. We take the time to understand what you want and how your hair behaves.</p>
+      <ul class="price-items">
+        <li class="price-item"><span>Ladies Cut & Blow Dry</span><span>£45+</span></li>
+        <li class="price-item"><span>Gents Cut</span><span>£28+</span></li>
+        <li class="price-item"><span>Fringe Trim</span><span>£12</span></li>
+        <li class="price-item"><span>Blow Dry</span><span>£28+</span></li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-cat">Colour</div>
+      <div class="service-title">Colour & Highlights</div>
+      <p class="service-body">From subtle sun-kissed balayage to bold transformations. We use Wella and Olaplex to keep your hair healthy while achieving beautiful results.</p>
+      <ul class="price-items">
+        <li class="price-item"><span>Full Colour</span><span>£70+</span></li>
+        <li class="price-item"><span>Highlights (half head)</span><span>£85+</span></li>
+        <li class="price-item"><span>Balayage</span><span>£110+</span></li>
+        <li class="price-item"><span>Toner / Gloss</span><span>£35+</span></li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-cat">Beauty</div>
+      <div class="service-title">Nails & Lashes</div>
+      <p class="service-body">Gel manicures, acrylics, lash lifts, tinting and extensions. All carried out by our specialist beauty team.</p>
+      <ul class="price-items">
+        <li class="price-item"><span>Gel Manicure</span><span>£32</span></li>
+        <li class="price-item"><span>Acrylic Set</span><span>£45</span></li>
+        <li class="price-item"><span>Lash Lift & Tint</span><span>£48</span></li>
+        <li class="price-item"><span>Classic Lash Extensions</span><span>£65</span></li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-cat">Skincare</div>
+      <div class="service-title">Facials & Waxing</div>
+      <p class="service-body">Dermalogica facials tailored to your skin type, plus full waxing services carried out in a clean, private treatment room.</p>
+      <ul class="price-items">
+        <li class="price-item"><span>Express Facial (30 min)</span><span>£38</span></li>
+        <li class="price-item"><span>Signature Facial (60 min)</span><span>£65</span></li>
+        <li class="price-item"><span>Brow Wax & Tint</span><span>£22</span></li>
+        <li class="price-item"><span>Leg Wax (full)</span><span>£38</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="sec-label">Our Work</div>
+  <h2 class="sec-title">The Gallery</h2>
+  <p class="sec-sub">A small selection of recent transformations. Follow us on Instagram for daily updates.</p>
+  <div class="gallery-grid">
+    <div class="gallery-cell" style="background:linear-gradient(135deg,#E8D0D8,#C4A0B5);">
+      <span class="icon">✂️</span><div class="gallery-overlay"><span>Balayage</span></div>
+    </div>
+    <div class="gallery-cell" style="background:linear-gradient(135deg,#D4C0CC,#B890A8);">
+      <span class="icon">💅</span><div class="gallery-overlay"><span>Gel Nails</span></div>
+    </div>
+    <div class="gallery-cell" style="background:linear-gradient(135deg,#F0D8E0,#D4B0C0);">
+      <span class="icon">🌸</span><div class="gallery-overlay"><span>Colour</span></div>
+    </div>
+    <div class="gallery-cell" style="background:linear-gradient(135deg,#E0C8D4,#C098B0);">
+      <span class="icon">✨</span><div class="gallery-overlay"><span>Styling</span></div>
+    </div>
+    <div class="gallery-cell" style="background:linear-gradient(135deg,#C8D0E0,#98A8C0);">
+      <span class="icon">💆</span><div class="gallery-overlay"><span>Treatment</span></div>
+    </div>
+    <div class="gallery-cell" style="background:linear-gradient(135deg,#E8D8E0,#C0A8B8);">
+      <span class="icon">💇</span><div class="gallery-overlay"><span>Cut & Blowdry</span></div>
+    </div>
+    <div class="gallery-cell" style="background:linear-gradient(135deg,#D8E0D0,#A8C098);">
+      <span class="icon">👁️</span><div class="gallery-overlay"><span>Lash Lift</span></div>
+    </div>
+    <div class="gallery-cell" style="background:linear-gradient(135deg,#E8D0C8,#C0A090);">
+      <span class="icon">🌿</span><div class="gallery-overlay"><span>Facial</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <div class="sec-label">Meet the Team</div>
+  <h2 class="sec-title">The People Behind Blush</h2>
+  <p class="sec-sub">Experienced, passionate, and genuinely invested in making you feel great.</p>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">👩‍🦱</div>
+      <div class="team-name">Sophie Williams</div>
+      <div class="team-role">Creative Director & Senior Stylist</div>
+      <p class="team-bio">14 years in the industry. Colour specialist trained with L'Oréal Professionnel in London. Loves a challenging balayage.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">👩‍🦰</div>
+      <div class="team-name">Emma Clarke</div>
+      <div class="team-role">Senior Stylist</div>
+      <p class="team-bio">Precision cutting expert and Wella colour technician. Particularly skilled with curly and afro hair.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">💅</div>
+      <div class="team-name">Jess Patel</div>
+      <div class="team-role">Lead Beauty Therapist</div>
+      <p class="team-bio">Dermalogica-trained facialist and nail artist. VTCT qualified with 8 years' experience across beauty.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">👩</div>
+      <div class="team-name">Lauren Boyd</div>
+      <div class="team-role">Lash & Brow Specialist</div>
+      <p class="team-bio">Lash technician certified in classic, hybrid and volume extensions. Also specialises in HD Brows.</p>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="booking-inner">
+    <div class="booking-text">
+      <div class="sec-label" style="color:var(--rose-light)">Book Now</div>
+      <h2 class="sec-title">Ready for your<br><em>transformation?</em></h2>
+      <p>Book online below or call us on <strong style="color:white;">01926 000 456</strong>. We'll always do our best to accommodate you at short notice.</p>
+      <p style="margin-top:12px;">Gift vouchers are also available — the perfect present for someone special.</p>
+    </div>
+    <div class="booking-form">
+      <h3>Book an Appointment</h3>
+      <div class="form-group"><label>Your Name</label><input type="text" placeholder="Jane Smith"></div>
+      <div class="form-group"><label>Phone</label><input type="tel" placeholder="07700 000 000"></div>
+      <div class="form-group"><label>Service</label>
+        <select>
+          <option>Cut & Blow Dry</option>
+          <option>Colour / Highlights</option>
+          <option>Balayage</option>
+          <option>Gel Nails</option>
+          <option>Lash Lift & Tint</option>
+          <option>Facial</option>
+          <option>Other — please specify</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Preferred Date</label><input type="date"></div>
+        <div class="form-group"><label>Preferred Time</label>
+          <select>
+            <option>Morning (9–12)</option>
+            <option>Afternoon (12–3)</option>
+            <option>Late Afternoon (3–6)</option>
+          </select>
+        </div>
+      </div>
+      <button class="submit-book">Request Booking →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo"><em>Blush</em> Hair & Beauty</div>
+      <p>Award-winning hair and beauty salon in the heart of Kenilworth, Warwickshire.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#services">Services & Prices</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#booking">Book</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Visit Us</h4>
+      <ul>
+        <li><a href="#">8 Abbey End, Kenilworth CV8 1QJ</a></li>
+        <li><a href="tel:01926000456">01926 000 456</a></li>
+        <li><a href="#">Mon–Sat: 9am–6pm</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Blush Hair & Beauty Studio</span>
+    <a href="../leamdigital.html">← Website by Leam Digital</a>
+  </div>
+</footer>
+
+</body>
+</html>

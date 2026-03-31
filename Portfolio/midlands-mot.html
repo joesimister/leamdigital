@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midlands MOT & Service Centre — Coventry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --black:#0A0A0A;--dark:#111111;--grey:#1C1C1C;
+  --red:#CC2200;--red2:#E03010;
+  --white:#FFFFFF;--off:#F2F2F2;
+  --text:#1A1A1A;--muted:#666;--border:#DDD;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--off);color:var(--text);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--red);height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;}
+.logo{font-family:'Bebas Neue',cursive;font-size:26px;color:white;letter-spacing:2px;}
+.nav-right{display:flex;align-items:center;gap:24px;}
+.nav-links{display:flex;gap:20px;list-style:none;}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.5px;transition:color 0.2s;}
+.nav-links a:hover{color:white;}
+.recovery-btn{background:var(--black);color:white;padding:8px 18px;border-radius:4px;font-size:12px;font-weight:700;text-decoration:none;letter-spacing:0.5px;display:flex;align-items:center;gap:6px;}
+
+/* TOP BAR */
+.top-bar{background:var(--black);padding:10px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:56px;}
+.top-bar-item{font-size:12px;color:rgba(255,255,255,0.6);display:flex;align-items:center;gap:6px;}
+.top-bar-item strong{color:white;}
+
+/* HERO */
+.hero{background:var(--dark);min-height:calc(100vh - 56px);display:flex;align-items:center;padding:60px 5%;position:relative;overflow:hidden;}
+.hero-pattern{position:absolute;inset:0;opacity:0.03;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%);background-size:20px 20px;}
+.hero-red-slash{position:absolute;right:0;top:0;bottom:0;width:40%;background:var(--red);clip-path:polygon(15% 0,100% 0,100% 100%,0% 100%);}
+@media(max-width:768px){.hero-red-slash{display:none;}}
+.hero-content{position:relative;max-width:620px;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:white;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:3px;margin-bottom:24px;}
+h1{font-family:'Bebas Neue',cursive;font-size:clamp(56px,8vw,100px);color:white;line-height:0.92;letter-spacing:2px;margin-bottom:16px;}
+h1 .red{color:var(--red);}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.55);line-height:1.65;max-width:480px;margin-bottom:36px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-book-mot{background:var(--red);color:white;padding:16px 32px;border-radius:5px;font-size:15px;font-weight:700;text-decoration:none;transition:background 0.2s,transform 0.15s;letter-spacing:0.3px;}
+.btn-book-mot:hover{background:var(--red2);transform:translateY(-2px);}
+.btn-recovery{background:transparent;border:2px solid rgba(255,255,255,0.3);color:white;padding:15px 28px;border-radius:5px;font-size:15px;font-weight:700;text-decoration:none;transition:border-color 0.2s;}
+.btn-recovery:hover{border-color:var(--red);color:var(--red);}
+.trust-chips{margin-top:40px;display:flex;gap:10px;flex-wrap:wrap;}
+.trust-chip{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);font-size:12px;padding:6px 14px;border-radius:3px;font-weight:500;}
+
+/* BOOKING STRIP */
+.booking-strip{background:var(--red);padding:40px 5%;}
+.booking-strip h2{font-family:'Bebas Neue',cursive;font-size:36px;color:white;letter-spacing:2px;margin-bottom:4px;}
+.booking-strip p{color:rgba(255,255,255,0.75);font-size:14px;margin-bottom:24px;}
+.booking-form-inline{display:flex;gap:10px;flex-wrap:wrap;}
+.booking-form-inline select,.booking-form-inline input{padding:12px 16px;border:none;border-radius:4px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;background:rgba(0,0,0,0.25);color:white;flex:1;min-width:160px;}
+.booking-form-inline select option{background:var(--dark);color:white;}
+.booking-form-inline select::placeholder,.booking-form-inline input::placeholder{color:rgba(255,255,255,0.5);}
+.booking-form-inline button{background:var(--black);color:white;border:none;padding:12px 28px;border-radius:4px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background 0.2s;}
+.booking-form-inline button:hover{background:#222;}
+
+/* SERVICES */
+.services{background:white;padding:80px 5%;}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
+.sec-title{font-family:'Bebas Neue',cursive;font-size:clamp(36px,5vw,60px);letter-spacing:2px;line-height:1;margin-bottom:12px;}
+.sec-sub{font-size:15px;color:var(--muted);line-height:1.65;max-width:500px;}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;margin-top:48px;border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.service-item{background:var(--off);padding:32px 24px;transition:background 0.2s;}
+.service-item:hover{background:white;}
+.service-icon{font-size:28px;margin-bottom:14px;}
+.service-name{font-family:'Bebas Neue',cursive;font-size:22px;letter-spacing:1.5px;margin-bottom:8px;}
+.service-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:12px;}
+.service-from{font-size:12px;color:var(--muted);}
+.service-price-val{font-family:'Bebas Neue',cursive;font-size:28px;color:var(--red);letter-spacing:1px;}
+
+/* PRICES */
+.prices{background:var(--dark);padding:80px 5%;}
+.prices .sec-title{color:white;}
+.price-table{margin-top:48px;border-collapse:collapse;width:100%;}
+.price-table th{background:var(--red);color:white;padding:14px 20px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-align:left;}
+.price-table td{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px;color:rgba(255,255,255,0.7);}
+.price-table tr:hover td{background:rgba(255,255,255,0.04);color:white;}
+.price-table .price{font-weight:700;color:var(--red);font-family:'Bebas Neue',cursive;font-size:20px;letter-spacing:1px;}
+
+/* REVIEWS */
+.reviews{background:var(--off);padding:80px 5%;}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:48px;}
+.review-card{background:white;border:1px solid var(--border);border-radius:8px;padding:28px;}
+.review-stars{color:var(--red);font-size:18px;letter-spacing:2px;margin-bottom:12px;}
+.review-text{font-size:14px;color:var(--muted);line-height:1.7;font-style:italic;margin-bottom:16px;}
+.review-author strong{font-size:14px;color:var(--text);display:block;margin-bottom:2px;}
+.review-author span{font-size:12px;color:var(--muted);}
+
+/* CONTACT */
+.contact{background:white;padding:80px 5%;}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+@media(max-width:700px){.contact-inner{grid-template-columns:1fr;}}
+.info-block{margin-bottom:28px;display:flex;gap:16px;align-items:flex-start;}
+.info-icon{width:44px;height:44px;background:var(--red);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.info-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
+.info-val{font-size:15px;font-weight:600;}
+.contact-form-box{background:var(--off);border:1px solid var(--border);border-radius:10px;padding:36px;}
+.contact-form-box h3{font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:1.5px;margin-bottom:24px;}
+.form-group{margin-bottom:14px;}
+.form-group label{display:block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:5px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;background:white;transition:border-color 0.2s;}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--red);}
+.form-submit{width:100%;background:var(--red);color:white;border:none;padding:14px;border-radius:5px;font-family:'Bebas Neue',cursive;font-size:20px;letter-spacing:2px;cursor:pointer;transition:background 0.2s;}
+.form-submit:hover{background:var(--red2);}
+
+/* FOOTER */
+footer{background:var(--black);padding:36px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.foot-logo{font-family:'Bebas Neue',cursive;font-size:22px;color:white;letter-spacing:2px;}
+.foot-logo span{color:var(--red);}
+footer p{font-size:12px;color:rgba(255,255,255,0.3);}
+footer a{color:rgba(255,255,255,0.3);font-size:12px;text-decoration:none;transition:color 0.2s;}
+footer a:hover{color:var(--red);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Midlands MOT</div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#prices">Prices</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:07700900456" class="recovery-btn">🚨 24hr Recovery</a>
+  </div>
+</nav>
+
+<div class="top-bar">
+  <div class="top-bar-item"><strong>07700 900 456</strong> — Book or call now</div>
+  <div class="top-bar-item">📍 <strong>45 Holyhead Road, Coventry CV1 3AB</strong></div>
+  <div class="top-bar-item">🕐 Mon–Sat <strong>7:30am–6pm</strong> · Recovery 24/7</div>
+  <div class="top-bar-item">✅ <strong>DVSA Approved</strong> Test Centre</div>
+</div>
+
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-red-slash"></div>
+  <div class="hero-content">
+    <div class="hero-tag">DVSA Approved · Coventry</div>
+    <h1>MOT.<br><span class="red">Service.</span><br>Repairs.</h1>
+    <p class="hero-sub">No-nonsense garage with honest prices. DVSA approved MOT testing centre. Book online in 2 minutes — no phone queues, no faff.</p>
+    <div class="hero-actions">
+      <a href="#booking" class="btn-book-mot">Book Your MOT</a>
+      <a href="tel:07700900456" class="btn-recovery">📞 Call Us</a>
+    </div>
+    <div class="trust-chips">
+      <span class="trust-chip">MOT from £40</span>
+      <span class="trust-chip">Free collection & delivery</span>
+      <span class="trust-chip">DVSA approved</span>
+      <span class="trust-chip">4.8★ on Google (500+ reviews)</span>
+      <span class="trust-chip">No hidden charges</span>
+    </div>
+  </div>
+</section>
+
+<div class="booking-strip" id="booking">
+  <h2>Book Your MOT Online</h2>
+  <p>Pick a time, drop the car off. We'll have it tested and back with you the same day.</p>
+  <div class="booking-form-inline">
+    <input type="text" placeholder="Your name">
+    <input type="tel" placeholder="Phone number">
+    <select><option value="">Select a service</option><option>MOT Test</option><option>MOT + Full Service</option><option>MOT + Interim Service</option><option>Service Only</option><option>Repair / Diagnostic</option></select>
+    <input type="date">
+    <button>Confirm Booking →</button>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="sec-label">What We Do</div>
+  <h2 class="sec-title">Our Services</h2>
+  <p class="sec-sub">From a standard MOT to full engine diagnostics — we do it all, with no jargon and no unnecessary upselling.</p>
+  <div class="services-grid">
+    <div class="service-item">
+      <div class="service-icon">🔍</div>
+      <div class="service-name">MOT Testing</div>
+      <p class="service-desc">DVSA approved testing centre. Class 4 and Class 7 vehicles. Same-day results, certificate issued on site.</p>
+      <div class="service-from">From</div><div class="service-price-val">£40</div>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">🛢️</div>
+      <div class="service-name">Car Servicing</div>
+      <p class="service-desc">Interim, full, and major services. We use quality parts and document everything in a health check report.</p>
+      <div class="service-from">Interim from</div><div class="service-price-val">£89</div>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">🔧</div>
+      <div class="service-name">Repairs</div>
+      <p class="service-desc">Brakes, exhausts, suspension, clutches, timing belts and more. We quote upfront and only do what's needed.</p>
+      <div class="service-from">Free diagnostic</div>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">💻</div>
+      <div class="service-name">Diagnostics</div>
+      <p class="service-desc">Engine warning light on? We'll run a full diagnostic scan and explain in plain English what it means.</p>
+      <div class="service-from">From</div><div class="service-price-val">£45</div>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">🚗</div>
+      <div class="service-name">Tyres</div>
+      <p class="service-desc">Supply and fit from leading brands. Budget to premium options. Free tyre check with every visit.</p>
+      <div class="service-from">From</div><div class="service-price-val">£49</div>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">🚨</div>
+      <div class="service-name">Recovery</div>
+      <p class="service-desc">24/7 roadside recovery across Coventry and Warwickshire. We'll get you moving or get you home.</p>
+      <div class="service-from">Call us</div>
+    </div>
+  </div>
+</section>
+
+<section class="prices" id="prices">
+  <div class="sec-label" style="color:var(--red)">Transparent Pricing</div>
+  <h2 class="sec-title">Our Price List</h2>
+  <table class="price-table">
+    <thead><tr><th>Service</th><th>What's Included</th><th>Price</th></tr></thead>
+    <tbody>
+      <tr><td>MOT Test</td><td>Class 4 vehicles — certificate same day</td><td class="price">£40</td></tr>
+      <tr><td>MOT + Interim Service</td><td>MOT, oil & filter change, 20-point check</td><td class="price">£99</td></tr>
+      <tr><td>MOT + Full Service</td><td>MOT, full service including brake fluid & air filter</td><td class="price">£149</td></tr>
+      <tr><td>Interim Service</td><td>Oil, filter, 20-point check, top-ups</td><td class="price">£89</td></tr>
+      <tr><td>Full Service</td><td>Full manufacturer schedule, 50-point check</td><td class="price">£145</td></tr>
+      <tr><td>Diagnostic Scan</td><td>Full OBD scan + explanation</td><td class="price">£45</td></tr>
+      <tr><td>Brake Pads (pair)</td><td>Quality pads, labour included</td><td class="price">£80+</td></tr>
+      <tr><td>Tyre Fitting</td><td>Per tyre, supply extra</td><td class="price">£15</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="reviews">
+  <div class="sec-label">Reviews</div>
+  <h2 class="sec-title">What Customers Say</h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"MOT, service and two new tyres sorted in a single morning. Price was exactly what they quoted, no extras added on. Brilliant garage."</p>
+      <div class="review-author"><strong>Gary W.</strong><span>Coventry · Google Review</span></div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Broke down on the M69 at 11pm. Recovery van was with me in 40 minutes. Friendly driver, car fixed by lunch the next day. Can't fault them."</p>
+      <div class="review-author"><strong>Priya S.</strong><span>Nuneaton · Google Review</span></div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Failed my MOT elsewhere for a minor issue. Midlands fixed it same day for £45 and re-tested me. No fuss, great value, great people."</p>
+      <div class="review-author"><strong>Tom F.</strong><span>Coventry · Google Review</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="sec-label">Find Us</div>
+      <h2 class="sec-title">Visit the Garage</h2>
+      <div class="info-block">
+        <div class="info-icon">📍</div>
+        <div><div class="info-label">Address</div><div class="info-val">45 Holyhead Road<br>Coventry, CV1 3AB</div></div>
+      </div>
+      <div class="info-block">
+        <div class="info-icon">📞</div>
+        <div><div class="info-label">Phone</div><div class="info-val">07700 900 456</div></div>
+      </div>
+      <div class="info-block">
+        <div class="info-icon">🕐</div>
+        <div><div class="info-label">Opening Hours</div><div class="info-val">Mon–Fri: 7:30am–6pm<br>Saturday: 8am–4pm<br>Recovery: 24/7, 365 days</div></div>
+      </div>
+      <div class="info-block">
+        <div class="info-icon">✅</div>
+        <div><div class="info-label">Certifications</div><div class="info-val">DVSA Approved · IMI Registered<br>Trading Standards Approved Garage</div></div>
+      </div>
+    </div>
+    <div class="contact-form-box">
+      <h3>Send an Enquiry</h3>
+      <div class="form-group"><label>Name</label><input type="text" placeholder="Your name"></div>
+      <div class="form-group"><label>Phone</label><input type="tel" placeholder="07700 000 000"></div>
+      <div class="form-group"><label>Registration</label><input type="text" placeholder="e.g. AB12 CDE"></div>
+      <div class="form-group"><label>Enquiry</label>
+        <select>
+          <option>Book an MOT</option>
+          <option>Book a Service</option>
+          <option>Request Repair Quote</option>
+          <option>Recovery Request</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <button class="form-submit">Send Enquiry →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">Midlands <span>MOT</span></div>
+  <p>DVSA Approved · IMI Registered · Coventry · Est. 2015</p>
+  <a href="../leamdigital.html">← Website by Leam Digital</a>
+</footer>
+
+</body>
+</html>

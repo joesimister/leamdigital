@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grove Estates — Independent Estate Agents, Warwickshire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --forest:#1A2E1A;--forest2:#243824;--forest3:#2E4A2E;
+  --sage:#4A7C59;--sage-light:#6A9E78;--mint:#C8E6D4;
+  --cream:#F4F0EB;--white:#FFFFFF;--warm:#FAF8F5;
+  --text:#1A2210;--muted:#5A6E58;--border:#D8E4D4;
+  --gold:#C4A040;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Nunito Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:white;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;border-bottom:1px solid var(--border);box-shadow:0 1px 12px rgba(0,0,0,0.05);}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-mark{width:36px;height:36px;background:var(--forest);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+.logo-text{font-family:'Libre Baskerville',serif;font-size:18px;color:var(--forest);font-weight:700;letter-spacing:0.5px;}
+.logo-text span{color:var(--sage);}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.5px;transition:color 0.2s;}
+.nav-links a:hover{color:var(--forest);}
+.nav-btns{display:flex;gap:10px;}
+.nav-valuation{background:var(--forest);color:white;padding:9px 22px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;transition:background 0.2s;}
+.nav-valuation:hover{background:var(--forest2);}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--forest);display:flex;flex-direction:column;align-items:stretch;padding-top:70px;position:relative;overflow:hidden;}
+.hero-bg-texture{position:absolute;inset:0;opacity:0.04;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.hero-main{flex:1;display:flex;align-items:center;padding:60px 5%;position:relative;}
+.hero-content{max-width:600px;}
+.hero-tag{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--mint);opacity:0.8;margin-bottom:18px;}
+h1{font-family:'Libre Baskerville',serif;font-size:clamp(38px,5vw,64px);color:white;line-height:1.1;margin-bottom:16px;}
+h1 em{color:var(--mint);font-style:italic;}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.6);line-height:1.7;max-width:480px;margin-bottom:36px;font-weight:300;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;}
+.btn-val{background:white;color:var(--forest);padding:14px 30px;border-radius:7px;font-size:14px;font-weight:700;text-decoration:none;transition:background 0.2s;}
+.btn-val:hover{background:var(--mint);}
+.btn-browse{border:1px solid rgba(255,255,255,0.3);color:white;padding:14px 26px;border-radius:7px;font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s;}
+.btn-browse:hover{border-color:var(--mint);color:var(--mint);}
+.hero-stats{display:flex;gap:36px;flex-wrap:wrap;}
+.hero-stat{}
+.stat-n{font-family:'Libre Baskerville',serif;font-size:32px;color:var(--mint);}
+.stat-l{font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px;}
+
+/* SEARCH BAR */
+.search-bar{background:white;padding:28px 5%;border-bottom:1px solid var(--border);}
+.search-bar h3{font-family:'Libre Baskerville',serif;font-size:18px;margin-bottom:16px;color:var(--forest);}
+.search-row{display:flex;gap:10px;flex-wrap:wrap;}
+.search-row input,.search-row select{padding:12px 14px;border:1px solid var(--border);border-radius:6px;font-family:'Nunito Sans',sans-serif;font-size:14px;color:var(--text);flex:1;min-width:160px;}
+.search-row input:focus,.search-row select:focus{outline:none;border-color:var(--sage);}
+.search-btn{background:var(--forest);color:white;border:none;padding:12px 28px;border-radius:6px;font-family:'Nunito Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:background 0.2s;white-space:nowrap;}
+.search-btn:hover{background:var(--forest2);}
+
+/* PROPERTIES */
+.properties{background:var(--cream);padding:80px 5%;}
+.section-header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:48px;}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sage);margin-bottom:10px;}
+.sec-title{font-family:'Libre Baskerville',serif;font-size:clamp(28px,3.5vw,42px);line-height:1.15;}
+.view-all{font-size:13px;font-weight:700;color:var(--sage);text-decoration:none;display:flex;align-items:center;gap:6px;}
+.view-all:hover{color:var(--forest);}
+.properties-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;}
+.property-card{background:white;border-radius:12px;overflow:hidden;border:1px solid var(--border);transition:transform 0.2s,box-shadow 0.2s;}
+.property-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,0.1);}
+.property-img{height:200px;background:var(--forest3);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.property-img .house-icon{font-size:60px;opacity:0.4;}
+.property-badge{position:absolute;top:14px;left:14px;background:var(--sage);color:white;font-size:11px;font-weight:700;padding:4px 12px;border-radius:4px;letter-spacing:0.5px;}
+.property-badge.sold{background:var(--forest);}
+.property-badge.sstc{background:var(--gold);color:var(--forest);}
+.property-body{padding:20px;}
+.property-price{font-family:'Libre Baskerville',serif;font-size:22px;color:var(--forest);margin-bottom:4px;}
+.property-address{font-size:15px;font-weight:600;margin-bottom:4px;}
+.property-loc{font-size:13px;color:var(--muted);margin-bottom:14px;}
+.property-details{display:flex;gap:16px;}
+.detail-item{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:5px;}
+
+/* VALUATION */
+.valuation{background:var(--forest);padding:80px 5%;}
+.valuation-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+@media(max-width:768px){.valuation-inner{grid-template-columns:1fr;gap:40px;}}
+.val-text .sec-title{color:white;}
+.val-text p{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.7;margin-top:16px;font-weight:300;}
+.val-text ul{margin-top:20px;list-style:none;display:flex;flex-direction:column;gap:10px;}
+.val-text ul li{color:rgba(255,255,255,0.7);font-size:14px;display:flex;align-items:center;gap:10px;}
+.val-text ul li::before{content:'✓';color:var(--mint);font-weight:700;}
+.val-form{background:var(--warm);border-radius:14px;padding:36px;}
+.val-form h3{font-family:'Libre Baskerville',serif;font-size:22px;color:var(--forest);margin-bottom:24px;}
+.form-group{margin-bottom:14px;}
+.form-group label{display:block;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.form-group input,.form-group select{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:6px;font-family:'Nunito Sans',sans-serif;font-size:14px;background:white;}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--sage);}
+.val-submit{width:100%;background:var(--forest);color:white;border:none;padding:14px;border-radius:6px;font-family:'Nunito Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:background 0.2s;}
+.val-submit:hover{background:var(--forest2);}
+
+/* TEAM */
+.team{background:white;padding:80px 5%;}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:48px;}
+.team-card{border:1px solid var(--border);border-radius:12px;padding:28px;text-align:center;transition:box-shadow 0.2s;}
+.team-card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.08);}
+.team-av{width:80px;height:80px;border-radius:50%;background:var(--mint);display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 14px;border:3px solid var(--border);}
+.team-name{font-family:'Libre Baskerville',serif;font-size:18px;margin-bottom:4px;}
+.team-role{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sage);margin-bottom:10px;}
+.team-bio{font-size:13px;color:var(--muted);line-height:1.65;}
+
+/* GUIDES */
+.guides{background:var(--cream);padding:80px 5%;}
+.guides-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:48px;}
+.guide-card{background:white;border:1px solid var(--border);border-radius:10px;padding:28px;display:flex;flex-direction:column;}
+.guide-icon{font-size:28px;margin-bottom:14px;}
+.guide-title{font-family:'Libre Baskerville',serif;font-size:19px;margin-bottom:8px;}
+.guide-desc{font-size:13px;color:var(--muted);line-height:1.65;flex:1;margin-bottom:16px;}
+.guide-link{font-size:13px;font-weight:700;color:var(--sage);text-decoration:none;}
+
+/* FOOTER */
+footer{background:var(--forest);padding:60px 5% 28px;color:rgba(255,255,255,0.5);}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:44px;}
+@media(max-width:700px){.footer-top{grid-template-columns:1fr;gap:32px;}}
+.foot-brand p{font-size:13px;margin-top:12px;line-height:1.7;max-width:260px;}
+.foot-col h4{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.foot-col ul li a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:13px;transition:color 0.2s;}
+.foot-col ul li a:hover{color:var(--mint);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;}
+.footer-bottom a{color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.2s;}
+.footer-bottom a:hover{color:var(--mint);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <div class="logo-mark">🌿</div>
+    <div class="logo-text">Grove <span>Estates</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#properties">Properties</a></li>
+    <li><a href="#valuation">Valuation</a></li>
+    <li><a href="#team">Our Team</a></li>
+    <li><a href="#guides">Guides</a></li>
+  </ul>
+  <div class="nav-btns">
+    <a href="#valuation" class="nav-valuation">Free Valuation</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-texture"></div>
+  <div class="hero-main">
+    <div class="hero-content">
+      <div class="hero-tag">Independent Estate Agents · Warwickshire</div>
+      <h1>Find your perfect home in <em>Warwickshire.</em></h1>
+      <p class="hero-sub">Independent estate agents offering honest advice, fair fees, and a personal service that the big chains simply can't match.</p>
+      <div class="hero-btns">
+        <a href="#valuation" class="btn-val">Get a Free Valuation</a>
+        <a href="#properties" class="btn-browse">Browse Properties</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="stat-n">340+</div><div class="stat-l">Homes sold</div></div>
+        <div class="hero-stat"><div class="stat-n">4.9★</div><div class="stat-l">Google rating</div></div>
+        <div class="hero-stat"><div class="stat-n">14 days</div><div class="stat-l">Avg. to offer</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="search-bar">
+  <h3>Search Properties</h3>
+  <div class="search-row">
+    <input type="text" placeholder="Town, postcode or area...">
+    <select><option>Buy</option><option>Rent</option></select>
+    <select><option>Any bedrooms</option><option>1+</option><option>2+</option><option>3+</option><option>4+</option></select>
+    <select><option>Any price</option><option>Up to £200k</option><option>Up to £300k</option><option>Up to £400k</option><option>Up to £500k</option><option>£500k+</option></select>
+    <select><option>Any type</option><option>Detached</option><option>Semi-detached</option><option>Terraced</option><option>Flat</option><option>Bungalow</option></select>
+    <button class="search-btn">Search →</button>
+  </div>
+</div>
+
+<section class="properties" id="properties">
+  <div class="section-header">
+    <div>
+      <div class="sec-label">For Sale</div>
+      <h2 class="sec-title">Featured Properties</h2>
+    </div>
+    <a href="#" class="view-all">View all properties →</a>
+  </div>
+  <div class="properties-grid">
+    <div class="property-card">
+      <div class="property-img" style="background:#2E4A2E;">
+        <span class="house-icon">🏡</span>
+        <span class="property-badge">For Sale</span>
+      </div>
+      <div class="property-body">
+        <div class="property-price">£385,000</div>
+        <div class="property-address">4 Bedroom Detached</div>
+        <div class="property-loc">📍 Kenilworth, CV8</div>
+        <div class="property-details">
+          <span class="detail-item">🛏 4 beds</span>
+          <span class="detail-item">🚿 2 baths</span>
+          <span class="detail-item">🚗 2 parking</span>
+        </div>
+      </div>
+    </div>
+    <div class="property-card">
+      <div class="property-img" style="background:#1E3A28;">
+        <span class="house-icon">🏘</span>
+        <span class="property-badge sstc">SSTC</span>
+      </div>
+      <div class="property-body">
+        <div class="property-price">£265,000</div>
+        <div class="property-address">3 Bedroom Semi-Detached</div>
+        <div class="property-loc">📍 Leamington Spa, CV31</div>
+        <div class="property-details">
+          <span class="detail-item">🛏 3 beds</span>
+          <span class="detail-item">🚿 1 bath</span>
+          <span class="detail-item">🚗 1 parking</span>
+        </div>
+      </div>
+    </div>
+    <div class="property-card">
+      <div class="property-img" style="background:#243820;">
+        <span class="house-icon">🏠</span>
+        <span class="property-badge">For Sale</span>
+      </div>
+      <div class="property-body">
+        <div class="property-price">£199,500</div>
+        <div class="property-address">2 Bedroom Terraced</div>
+        <div class="property-loc">📍 Warwick, CV34</div>
+        <div class="property-details">
+          <span class="detail-item">🛏 2 beds</span>
+          <span class="detail-item">🚿 1 bath</span>
+          <span class="detail-item">🛤 On street</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="valuation" id="valuation">
+  <div class="valuation-inner">
+    <div class="val-text">
+      <div class="sec-label" style="color:var(--mint)">Thinking of Selling?</div>
+      <h2 class="sec-title" style="color:white;">Get your free property valuation.</h2>
+      <p>Find out what your home is worth in today's market. No obligation, no hard sell — just an honest assessment from an experienced local agent.</p>
+      <ul>
+        <li>Carried out by a local expert who knows your area</li>
+        <li>Full market report included</li>
+        <li>No pressure to instruct us</li>
+        <li>Available 7 days a week</li>
+      </ul>
+    </div>
+    <div class="val-form">
+      <h3>Request a Valuation</h3>
+      <div class="form-group"><label>Full Name</label><input type="text" placeholder="Jane Smith"></div>
+      <div class="form-group"><label>Property Address</label><input type="text" placeholder="Your address or postcode"></div>
+      <div class="form-group"><label>Phone</label><input type="tel" placeholder="07700 000 000"></div>
+      <div class="form-group"><label>Property Type</label>
+        <select><option>Detached</option><option>Semi-detached</option><option>Terraced</option><option>Flat / Apartment</option><option>Bungalow</option></select>
+      </div>
+      <div class="form-group"><label>Preferred Date</label><input type="date"></div>
+      <button class="val-submit">Request Valuation →</button>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <div class="sec-label">Our People</div>
+  <h2 class="sec-title">Meet the Team</h2>
+  <p style="font-size:15px;color:var(--muted);max-width:500px;margin-top:10px;">We're a small, experienced team who genuinely care about getting you the best possible outcome.</p>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-av">👨‍💼</div>
+      <div class="team-name">Andrew Grove</div>
+      <div class="team-role">Director</div>
+      <p class="team-bio">20+ years in Warwickshire property. Founded Grove Estates because he believed clients deserved better.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-av">👩‍💼</div>
+      <div class="team-name">Helen Carter</div>
+      <div class="team-role">Senior Negotiator</div>
+      <p class="team-bio">Expert in the Leamington and Warwick markets. Known for her tenacity and transparent communication.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-av">👨</div>
+      <div class="team-name">Raj Patel</div>
+      <div class="team-role">Lettings Manager</div>
+      <p class="team-bio">Manages our growing lettings portfolio. Brilliant with landlords and tenants alike.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-av">👩</div>
+      <div class="team-name">Sophie Nash</div>
+      <div class="team-role">Sales Progressor</div>
+      <p class="team-bio">Makes sure your sale actually completes. Chases solicitors, keeps everyone informed, gets things done.</p>
+    </div>
+  </div>
+</section>
+
+<section class="guides" id="guides">
+  <div class="sec-label">Resources</div>
+  <h2 class="sec-title">Helpful Guides</h2>
+  <p style="font-size:15px;color:var(--muted);max-width:500px;margin-top:10px;">Whether you're buying for the first time or your third, we've written guides to help every step of the way.</p>
+  <div class="guides-grid">
+    <div class="guide-card">
+      <div class="guide-icon">🏠</div>
+      <div class="guide-title">First-Time Buyer's Guide</div>
+      <p class="guide-desc">Everything you need to know about buying your first home in the UK — mortgages, conveyancing, surveys and what to watch out for.</p>
+      <a href="#" class="guide-link">Read the guide →</a>
+    </div>
+    <div class="guide-card">
+      <div class="guide-icon">💰</div>
+      <div class="guide-title">How to Get the Best Price</div>
+      <p class="guide-desc">Practical advice on presenting your home, timing your sale, and negotiating effectively to maximise what you walk away with.</p>
+      <a href="#" class="guide-link">Read the guide →</a>
+    </div>
+    <div class="guide-card">
+      <div class="guide-icon">📋</div>
+      <div class="guide-title">Landlord's Handbook</div>
+      <p class="guide-desc">Your obligations as a landlord, how to find great tenants, what to charge, and how to handle the tricky bits when they arise.</p>
+      <a href="#" class="guide-link">Read the guide →</a>
+    </div>
+    <div class="guide-card">
+      <div class="guide-icon">📍</div>
+      <div class="guide-title">Living in Warwickshire</div>
+      <p class="guide-desc">An honest guide to the towns and villages of Warwickshire — schools, transport links, what each area is really like to live in.</p>
+      <a href="#" class="guide-link">Read the guide →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="foot-brand">
+      <div style="font-family:'Libre Baskerville',serif;font-size:20px;color:white;">Grove <span style="color:var(--mint);">Estates</span></div>
+      <p>Independent estate agents serving Warwickshire since 2010. Honest advice, fair fees, personal service.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#properties">Properties for Sale</a></li>
+        <li><a href="#">Properties to Rent</a></li>
+        <li><a href="#valuation">Free Valuation</a></li>
+        <li><a href="#">Landlord Services</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">22 High Street, Warwick CV34 4AP</a></li>
+        <li><a href="tel:01926000789">01926 000 789</a></li>
+        <li><a href="#">hello@groveestates.co.uk</a></li>
+        <li><a href="#">Mon–Sat: 9am–5:30pm</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Grove Estates Ltd · NAEA Propertymark Protected</span>
+    <a href="../leamdigital.html">← Website by Leam Digital</a>
+  </div>
+</footer>
+
+</body>
+</html>
